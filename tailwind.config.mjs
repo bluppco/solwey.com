@@ -51,6 +51,9 @@ module.exports = {
 			},
 			fontFamily: {
 
+				'montserrat': [ 'Montserrat', 'sans-serif' ],
+				'Poppins': [ 'Poppins', 'sans-serif' ],
+				'Rubik': [ 'Rubik', 'sans-serif' ]
 
 			}
 
