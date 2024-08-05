@@ -1,0 +1,36 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro" 
+
+// IMPORT ASTRO ATOMS
+import ButtonBlue from "@/atoms/atoms-nandini/buttons/blue/index.astro"
+import HeadingTwo4xlboldCenter from "@/atoms/atoms-nandini/headings/two/4xl/bold/center/index.astro"
+import Link from "@/atoms/links/index.astro"
+
+// HARDCODED DATA
+const data ={
+
+    button_link:"/blog",
+    button_text:"read our blog",
+    title1:"Wondering what’s new in our industry?",
+    title2:"We’ll tell you.",
+
+}
+
+---
+<section class="bg-gradient-to-r from-red-100 via-red-50 to-white py-16">
+    <Container>
+        <div class="space-y-10">
+            <div>
+                <HeadingTwo4xlboldCenter>{ data.title1 }</HeadingTwo4xlboldCenter>
+                <HeadingTwo4xlboldCenter>{ data.title2 }</HeadingTwo4xlboldCenter>
+            </div>
+            <div class="mx-32 sm:mx-48 md:mx-64 xl:mx-80 2xl:mx-96">
+                <Link aria_label={ data.button_link } href={ data.button_link }>
+                    <ButtonBlue>{ data.button_text }</ButtonBlue>
+                </Link>
+            </div>
+        </div>
+    </Container>
+</section>
