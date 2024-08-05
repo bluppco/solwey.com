@@ -1,0 +1,69 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import ServicesCard from "@/components/home/services/card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingThree5Xl from "@/atoms/atoms-shiva/headings/three/5xl/bold/leading/index.astro"
+import HeadingTwoLg from "@/atoms/atoms-shiva/headings/two/lg/index.astro"
+import ParagraphLgMedium from "@/atoms/atoms-shiva/paragraphs/lg/medium/leading/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    description: "We work with your trough all stages: from the concept and strategy, all the way to every step of implementation.",
+    subtitle: "We provide design & development services",
+    title: "SERVICES",
+
+}
+const card_data = [
+
+    {
+        source: "/logos/uiux.svg",
+        title: "UX/UI design & Optimisation",
+    },
+    {
+        source: "/logos/appdev.svg",
+        title: "Web & Mobile App Development",
+    },
+    {
+        source: "/logos/e-comm.svg",
+        title: "E-commerce & Blockchain",
+    },
+    {
+        source: "/logos/data-analytics.svg",
+        title: "Business Intelligence & Data Analytics",
+    },
+
+]
+
+---
+
+<section class="bg-[url('images/services-bg.png')] bg-cover bg-no-repeat py-32">
+    <ContainerSmall>
+        <div class="flex flex-col gap-20">
+            <div class="flex flex-col gap-4 max-w-[600px]">
+                <HeadingTwoLg>{ data.title }</HeadingTwoLg>
+                <HeadingThree5Xl>{ data.subtitle }</HeadingThree5Xl>
+                <ParagraphLgMedium>{ data.description }</ParagraphLgMedium>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 place-items-center gap-6">
+                {
+
+                    card_data.map( ( data ) => (
+
+                        <ServicesCard
+                            source={ data.source }
+                            title={ data.title }
+                        />
+
+                    ))
+
+                }
+            </div>
+        </div>
+    </ContainerSmall>
+</section>
