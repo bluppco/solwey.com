@@ -1,0 +1,147 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro" 
+
+// IMPORT ASTRO ATOMS
+import HeadingSixXlBold from "@/atoms/atoms-nandini/headings/six/xl/bold/index.astro"
+import HeadingThree3xlBold from "@/atoms/atoms-nandini/headings/three/3xl/bold/index.astro"
+import HeadingTwo4xlBold from "@/atoms/atoms-nandini/headings/two/4xl/bold/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBase from "@/atoms/atoms-nandini/paragraphs/base/index.astro"
+import ParagraphBaseSemibold from "@/atoms/atoms-nandini/paragraphs/base/semibold/index.astro"
+import ParagraphExtraSmallMedium from "@/atoms/atoms-nandini/paragraphs/xs/medium/index.astro"
+import ParagraphSmall from "@/atoms/atoms-nandini/paragraphs/sm/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    alternative_text:"Image",
+    description1:"PEOPLE",
+    description2:"@SOLWEYCONSULTING",
+    image1_description:"CEO, Co-Founder",
+    image1_title:"Andrew Drach, PhD",
+    image2_description:"Creative Director, Co-Founder",
+    image2_title:"Monika Jociunaite, MS",
+    image3_description:"COO",
+    image3_title:"Nima Ostadi, PhD, PMP",
+    image4_description:"Tech Lead",
+    image4_title:"Wes Johnson",
+    source1:"/images/team-member-1.png",
+    source2:"/images/team-member-2.png",
+    source3:"/images/team-member-3.png",
+    source4:"/images/team-member-4.png",
+    source5:"/icons/linkedin.svg",
+    sub_title1:"Our team comprises various talents. Who are working across UX/UI, Software development, machine learning and more.",
+    sub_title2:"Let’s Connect",
+    title:"Meet the leadership team",
+
+}
+
+---
+<section class="my-20">
+    <Container>
+        <div class="space-y-10">
+            <div class="space-y-5">
+                <ParagraphBase>{ data.description1 }</ParagraphBase>
+                <HeadingTwo4xlBold>{ data.title }</HeadingTwo4xlBold>
+                <ParagraphBaseSemibold>{ data.sub_title1 }</ParagraphBaseSemibold>
+            </div>
+            <div class="sm:grid sm:grid-rows-2 lg:grid-rows-3 xl:grid-rows-2 gap-10">
+                <div class="sm:grid sm:grid-cols-2 xl:grid-cols-3 gap-10 xl:gap-0 mx-10 md:mx-28">
+                    <div class="space-y-2 animate-slide-in-right">
+                        <div class="size-64 bg-gray-100">
+                            <PictureInternal 
+                                alternative_text={ data.alternative_text }
+                                source={ data.source1 }
+                            />
+                        </div>
+                        <HeadingSixXlBold>{ data.image1_title }</HeadingSixXlBold>
+                        <ParagraphSmall>{ data.image1_description }</ParagraphSmall>
+                    </div>
+                    <div class="space-y-2 animate-slide-in-left">
+                        <div class="size-64 bg-gray-100">
+                            <PictureInternal 
+                                alternative_text={ data.alternative_text }
+                                source={ data.source2 }
+                            />
+                        </div>
+                        <HeadingSixXlBold>{ data.image2_title }</HeadingSixXlBold>
+                        <ParagraphSmall>{ data.image2_description }</ParagraphSmall>
+                    </div>
+                    <div class="hidden xl:block my-20">
+                        <HeadingThree3xlBold>{ data.sub_title2 }</HeadingThree3xlBold>
+                        <div class="flex gap-2 items-center">
+                            <Link>
+                                <div class="size-12">
+                                    <PictureInternal 
+                                        alternative_text={ data.alternative_text }
+                                        source={ data.source5 }
+                                    />
+                                </div>
+                            </Link>
+                            <Link>
+                                <ParagraphExtraSmallMedium>{ data.description2 }</ParagraphExtraSmallMedium>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-80 my-20 hidden lg:block xl:hidden">
+                    <HeadingThree3xlBold>{ data.sub_title2 }</HeadingThree3xlBold>
+                    <div class="flex gap-2 items-center">
+                        <Link>
+                            <div class="size-12">
+                                <PictureInternal 
+                                    alternative_text={ data.alternative_text }
+                                    source={ data.source5 }
+                                />
+                            </div>
+                        </Link>
+                        <Link>
+                            <ParagraphExtraSmallMedium>{ data.description2 }</ParagraphExtraSmallMedium>
+                        </Link>
+                    </div>
+                </div>
+                <div class="sm:grid sm:grid-cols-2 gap-10 mx-10 md:mx-28 xl:mx-60">
+                    <div class="space-y-2 animate-slide-in-right">
+                        <div class="size-64 bg-gray-100">
+                            <PictureInternal 
+                                alternative_text={ data.alternative_text }
+                                source={ data.source3 }
+                            />
+                        </div>
+                        <HeadingSixXlBold>{ data.image3_title }</HeadingSixXlBold>
+                        <ParagraphSmall>{ data.image3_description }</ParagraphSmall>
+                    </div>
+                    <div class="space-y-2 animate-slide-in-left">
+                        <div class="size-64 bg-gray-100">
+                            <PictureInternal 
+                                alternative_text={ data.alternative_text }
+                                source={ data.source4 }
+                            />
+                        </div>
+                        <HeadingSixXlBold>{ data.image4_title }</HeadingSixXlBold>
+                        <ParagraphSmall>{ data.image4_description }</ParagraphSmall>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:hidden mx-28 sm:mx-44 md:mx-72">
+                <HeadingThree3xlBold>{ data.sub_title2 }</HeadingThree3xlBold>
+                <div class="flex gap-2 items-center">
+                    <Link>
+                        <div class="size-12">
+                            <PictureInternal 
+                                alternative_text={ data.alternative_text }
+                                source={ data.source5 }
+                            />
+                        </div>
+                    </Link>
+                    <Link>
+                        <ParagraphExtraSmallMedium>{ data.description2 }</ParagraphExtraSmallMedium>
+                    </Link>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
