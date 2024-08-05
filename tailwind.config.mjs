@@ -24,6 +24,11 @@ module.exports = {
 		},
     	extend: {
 
+			backgroundImage: {
+
+				'custom-gradient': 'linear-gradient(60deg, #f5d8df, #e8dbd0, #d7e1e5)',
+				
+			},
 			keyframes: {
 
 				"accordion-down": {

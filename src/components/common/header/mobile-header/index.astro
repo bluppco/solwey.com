@@ -1,0 +1,26 @@
+---
+
+// IMPORT REACT COMPONENTS
+import HamburgerMenu from "@/components/common/header/mobile-header/jsx/index.jsx"
+
+//IMPORT ASTRO ATOMS
+import HeadingSix from "@/atoms/atoms-diksha/headings/six/index.astro"
+import Picture from "@/atoms/picture/internal/contain/index.astro"
+
+//GET ASTRO PROPS
+const { header_data } = Astro.props
+
+---
+
+<div class="lg:hidden flex items-center gap-2 justify-between">
+    <div class="flex items-center gap-2">
+        <div class="h-12 aspect-[1/2]">
+            <Picture
+                alternative_text="logo"
+                source="/solwey-logo.svg"
+            />
+        </div>
+        <HeadingSix>SOLWEY CONSULTING</HeadingSix>
+    </div>
+    <HamburgerMenu client:load  header_data={ header_data } />
+</div>

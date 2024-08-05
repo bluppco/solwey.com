@@ -1,13 +1,57 @@
 ---
 
+// IMPORT ASTRO COLLECTION
+import { getCollection } from "astro:content"
+
+// IMPORT COLLECTIONS
+let header_data = await getCollection( "header" )
+header_data = header_data.filter( item => item.data.live ).sort( ( a, b ) => a.data.order - b.data.order )
+
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
+//IMPORT ASTRO COMPONENTS
+import MobileHeader from "@/components/common/header/mobile-header/index.astro"
+
+//IMPORT ASTRO ATOMS
+import ButtonBlack from "@/atoms/atoms-diksha/buttons/black/index.astro"
+import HeadingSix from "@/atoms/atoms-diksha/headings/six/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphMediumUppercase from "@/atoms/atoms-diksha/paragraphs/medium/uppercase/index.astro"
+import Picture from "@/atoms/picture/internal/contain/index.astro"
+
 ---
-<header class="bg-blue-600 h-12">
+
+<header class="bg-custom-gradient py-4">
     <Container>
-        <section class="flex items-center h-full">
-            <p class="text-white">I am header</p>
-        </section>
+        <div class="hidden lg:flex items-center gap-2 justify-between">
+            <div class="flex items-center gap-2">
+                <div class="h-12 aspect-[1/2]">
+                    <Picture
+                        alternative_text="logo"
+                        source="/solwey-logo.svg"
+                    />
+                </div>
+                <HeadingSix>SOLWEY CONSULTING</HeadingSix>
+            </div>
+            <div class="flex gap-12">
+                {
+
+                    header_data.map( item => (
+
+                        <Link
+                            aria_label={ item.data.title }
+                            href={ item.data.link }
+                        >
+                            <ParagraphMediumUppercase>{ item.data.title }</ParagraphMediumUppercase>
+                        </Link>
+
+                    ))
+
+                }
+            </div>
+            <ButtonBlack>book now</ButtonBlack>
+        </div>
+        <MobileHeader header_data={ header_data } />
     </Container>
 </header>
