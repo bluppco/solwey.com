@@ -67,8 +67,8 @@ const slides = [
                 <!-- Add Pagination -->
                 <div class="pagination flex items-center justify-center absolute bottom-0"></div>
                 <!-- Add Navigation -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev max-lg:!hidden"></div>
+                <div class="swiper-button-next max-lg:!hidden"></div>
             </div>
         </div>
     </ContainerSmall>
@@ -88,10 +88,18 @@ const slides = [
         },
         slidesPerView: 1,
         loop: true,
-        navigation: {
+        breakpoints: {
 
-            nextEl: '.button-next',
-            prevEl: '.button-prev',
+            1024: {
+
+                navigation: {
+
+                    nextEl: '.button-next',
+                    prevEl: '.button-prev',
+
+                },
+
+            },
 
         },
         pagination: {
