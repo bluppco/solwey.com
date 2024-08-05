@@ -47,6 +47,10 @@ module.exports = {
 			},
 			colors: {
 
+				"pink_hue": "#f5d8df",
+				"yellow_hue": "#e8dbd0",
+				"blue_hue": "#d7e1e5",
+				"pink_hue_bg": "#eee5e1",
 
 			},
 			fontFamily: {
