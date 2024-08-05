@@ -1,0 +1,35 @@
+---
+
+// IMPORT ASTRO ATOMS
+import ParagraphBaseUpperCase from "@/atoms/atoms-nandini/paragraphs/base/uppercase/index.astro"
+
+// GET ASTRO PROPS
+const { 
+
+    data, 
+    
+} = Astro.props
+
+---
+<div >
+    <ul class="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 gap-10 mt-10">
+        {
+
+            data.map( ( item ) =>{
+
+                return (
+
+                        <li>
+                            <div class="space-y-5">
+                                <ParagraphBaseUpperCase>{ item.data.title }</ParagraphBaseUpperCase>
+                                <input type="text" class="font-Poppins text-xs xl:text-base bg-gray-100 shadow-lg pl-10 pr-28 sm:pr-52 md:pr-80 lg:pr-40 py-4 border-2 border-white outline-sky-500 capitalize" placeholder={ item.data.description } />
+                            </div>
+                        </li>
+
+                )
+
+            })
+
+        }
+    </ul>
+</div>

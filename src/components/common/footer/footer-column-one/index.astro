@@ -1,0 +1,36 @@
+---
+
+// IMPORT ASTRO ATOMS
+import ParagraphBaseUpperCase from "@/atoms/atoms-nandini/paragraphs/base/uppercase/index.astro"
+import Paragraph2xlBold from "@/atoms/atoms-nandini/paragraphs/2xl/bold/index.astro"
+
+// GET ASTRO PROPS
+const { 
+
+    data, 
+    
+} = Astro.props
+
+---
+<div>
+    <ul class="flex gap-5 lg:grid lg:grid-rows-3">
+        {
+
+            data.map( ( item ) =>{
+
+                return (
+
+                        <li>
+                            <div class="space-y-5">
+                                <ParagraphBaseUpperCase>{ item.data.description }</ParagraphBaseUpperCase>
+                                <Paragraph2xlBold>{ item.data.title }</Paragraph2xlBold>
+                            </div>
+                        </li>
+
+                )
+
+            })
+
+        }
+    </ul>
+</div>
