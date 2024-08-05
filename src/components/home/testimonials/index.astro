@@ -1,0 +1,113 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingThree5XlCenter from "@/atoms/atoms-shiva/headings/three/5xl/bold/leading/center/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    title: "We couldn’t say it better ourselves",
+
+}
+const slides = [
+
+    {   
+        review: "Anna Heim interviewed Andrew Drach, a software development consultant who was widely recommended by respondents in a recent survey",
+        source: "/logos/techcrunch.svg",
+    },
+    {   
+        review: "Andrew and Nima are able to take complex tasks and goals and break them apart into accomplishable chunks, which abstracts the complexity away from us. They're incredibly responsive and care about delivering a world-class MVP",
+        source: "/logos/clutch.svg",
+    },
+    {   
+        review: "Andrew Drach & his colleagues have repeatedly exceeded our expectations, while producing a comprehensive mobile application over the course of our contract",
+        source: "/logos/upwork.svg",
+    },
+
+]
+
+---
+
+<section class="py-16">
+    <ContainerSmall>
+        <div class="flex flex-col gap-2">
+            <HeadingThree5XlCenter>{ data.title }</HeadingThree5XlCenter>
+            <div class="testimonial-swiper-container relative overflow-hidden py-20">
+                <div class="swiper-wrapper">
+                    {
+
+                        slides.map( ( data ) => (
+
+                            <div class="swiper-slide !flex justify-center">
+                                <div class="flex flex-col gap-6 items-center justify-center max-w-[700px]">
+                                    <div class="w-44 aspect-[10/2]">
+                                        <PictureContain
+                                            alternative_text=""
+                                            source={ data.source }
+                                        />
+                                    </div>
+                                    <p class="text-2xl text-center font-Poppins">{ data.review }</p>
+                                    <div class="size-6">
+                                        <PictureContain
+                                            alternative_text=""
+                                            source="/icons/quote.svg"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                        ))
+
+                    }
+                </div>
+                <!-- Add Pagination -->
+                <div class="pagination flex items-center justify-center absolute bottom-0"></div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-prev max-lg:!hidden"></div>
+                <div class="swiper-button-next max-lg:!hidden"></div>
+            </div>
+        </div>
+    </ContainerSmall>
+</section>
+
+<script>
+    // IMPORT SWIPER JS AND ITS MODULES
+    import Swiper from "swiper/bundle"
+    import "swiper/css/bundle"
+
+    // INITIALISE SWIPER
+    new Swiper(".testimonial-swiper-container", {
+        autoplay: {
+
+            delay: 5000,
+
+        },
+        slidesPerView: 1,
+        loop: true,
+        breakpoints: {
+
+            1024: {
+
+                navigation: {
+
+                    nextEl: '.button-next',
+                    prevEl: '.button-prev',
+
+                },
+
+            },
+
+        },
+        pagination: {
+
+            el: '.pagination',
+            clickable: true,
+
+        }
+        
+    })
+</script>
