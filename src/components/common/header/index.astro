@@ -11,7 +11,7 @@ header_data = header_data.filter( item => item.data.live ).sort( ( a, b ) => a.d
 import Container from "@/layouts/container/index.astro"
 
 //IMPORT ASTRO COMPONENTS
-import MobileHeader from "@/components/common/header/mobile-header/index.astro"
+import HeaderMobile from "@/components/common/header/mobile-header/index.astro"
 
 //IMPORT ASTRO ATOMS
 import ButtonBlack from "@/atoms/atoms-diksha/buttons/black/index.astro"
@@ -52,6 +52,6 @@ import Picture from "@/atoms/picture/internal/contain/index.astro"
             </div>
             <ButtonBlack>book now</ButtonBlack>
         </div>
-        <MobileHeader header_data={ header_data } />
+        <HeaderMobile header_data={ header_data } />
     </Container>
 </header>

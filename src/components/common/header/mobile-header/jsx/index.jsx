@@ -18,7 +18,7 @@ const HamburgerMenu = ({ header_data }) => {
         
                 isOpen && (
         
-                    <div className="absolute top-20 left-0 w-screen h-screen bg-pink_hue_bg transition-opacity duration-500 ease-in-out flex flex-col gap-8 items-center justify-center">
+                    <div className="absolute top-20 left-0 w-screen h-screen bg-pink_bg transition-opacity duration-500 ease-in-out flex flex-col gap-8 items-center justify-center">
                         {
                             header_data.map( ( item, index ) => (
                             
