@@ -1,11 +1,71 @@
 ---
+// IMPORT ASTRO COLLECTION
+import { getCollection } from 'astro:content'
+
+// IMPORT FOOTER-COLUMN COLLECTION
+let FooterContactDetails = await getCollection('footer-column-one')
+FooterContactDetails = FooterContactDetails.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORT FOOTER-FORM COLLECTION
+let FooterForm = await getCollection('footer-form')
+FooterForm = FooterForm.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
 
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
+// IMPORT ASTRO COMPONENTS
+import FooterColumnOne from "@/components/common/footer/footer-column-one/index.astro"
+import Form from "@/components/common/footer/form/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonBlack from "@/atoms/atoms-nandini/buttons/black/index.astro"
+import HeadingOne5xlBold from "@/atoms/atoms-nandini/headings/one/5xl/bold/index.astro"
+import ParagraphBaseUpperCase from "@/atoms/atoms-nandini/paragraphs/base/uppercase/index.astro"
+import ParagraphBaseCenter from "@/atoms/atoms-nandini/paragraphs/base/center/index.astro"
+import ParagraphExtraLargeMedium from "@/atoms/atoms-nandini/paragraphs/xl/medium/index.astro"
+
+// IMPORT DATA FROM FRONT-MATTER
+import { frontmatter as button } from "@/content/footer-extras/button.md"
+import { frontmatter as getstarted } from "@/content/footer-extras/get-started.md"
+import { frontmatter as paragraph } from "@/content/footer-extras/paragraph.md"
+import { frontmatter as project } from "@/content/footer-extras/project-details.md"
+import { frontmatter as rights } from "@/content/footer-extras/rights.md"
+
+// HARDCODED DATA
+const button_text = button.title
+const getstarted_text = getstarted.title
+const paragraph_text = paragraph.title
+const project_description = project.description
+const project_text = project.title
+const rights_text = rights.title
+
 ---
-<footer class="bg-black py-20">
+<footer class="bg-gradient-to-r from-red-50 to-white pt-16">
     <Container>
-        <p class="text-white">I am footer</p>
+        <div class="space-y-5">
+            <HeadingOne5xlBold>{ getstarted_text }</HeadingOne5xlBold>
+            <div class="sm:mr-40 lg:mr-60">
+                <ParagraphExtraLargeMedium>{ paragraph_text }</ParagraphExtraLargeMedium>
+            </div>
+            <div class="lg:hidden">
+                <FooterColumnOne data={ FooterContactDetails } />
+            </div>
+        </div>
+        <div class="flex justify-between">
+            <Form data={ FooterForm } />
+            <div class="hidden lg:block">
+                <FooterColumnOne data={ FooterContactDetails } />
+            </div>
+        </div>
+        <div class="space-y-5 py-10">
+            <div class="space-y-5">
+                <ParagraphBaseUpperCase>{ project_text }</ParagraphBaseUpperCase>
+                <input type="text" class="font-Poppins text-xs xl:text-base bg-gray-100 shadow-lg pl-10 pt-4 pb-60 pr-28 sm:pr-52 lg:pr-96 border-2 border-white outline-sky-500 capitalize" placeholder={ project_description } />
+            </div>
+            <ButtonBlack>{ button_text }</ButtonBlack>
+        </div>
     </Container>
+    <div class="bg-gradient-to-r from-red-100 via-blue-100 to-red-100 pt-5 pb-10 w-full">
+        <ParagraphBaseCenter>{ rights_text }</ParagraphBaseCenter>
+    </div>
 </footer>
