@@ -1,0 +1,230 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import WhyUsCard from "@/components/home/why-choose-us/card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingFourLgSemibold from "@/atoms/atoms-shiva/headings/four/lg/semibold/index.astro"
+import HeadingThree5XlCenter from "@/atoms/atoms-shiva/headings/three/5xl/bold/leading/center/index.astro"
+import PragraphLgCenter from "@/atoms/atoms-shiva/paragraphs/lg/center/index.astro"
+import PragraphLgResponsive from "@/atoms/atoms-shiva/paragraphs/lg/responsive/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    title: "Why choose us?",
+
+}
+const table_data = {
+
+    subtitles: [
+
+        {
+            subtitle: "SOLWEY CONSULTING",
+        },
+        {
+            subtitle: "STAFFING AGENCIES",
+        },
+        {
+            subtitle: "OTHER DIGITAL AGENCIES",
+        },
+
+    ],
+    title: "CORE VALUES",
+
+}
+const table_list = [
+
+    {
+        checks: [
+
+            {
+                src: "/icons/pink-check.svg",
+            },
+            {
+                src: "/icons/black-check.svg",
+            },
+            {
+                src: "/icons/dash.svg",
+            }
+
+        ],
+        text: "Rapid iteration and pivoting based on your feedback",
+    },
+    {
+        checks: [
+
+            {
+                src: "/icons/pink-check.svg",
+            },
+            {
+                src: "/icons/black-check.svg",
+            },
+            {
+                src: "/icons/dash.svg",
+            }
+
+        ],
+        text: "Frequent and transparent reporting of project progress",
+    },
+    {
+        checks: [
+
+            {
+                src: "/icons/pink-check.svg",
+            },
+            {
+                src: "/icons/black-check.svg",
+            },
+            {
+                src: "/icons/dash.svg",
+            }
+
+        ],
+        text: "Frequent and direct interactions with your team to ensure optimal progress",
+    },
+    {
+        checks: [
+
+            {
+                src: "/icons/pink-check.svg",
+            },
+            {
+                src: "/icons/dash.svg",
+            },
+            {
+                src: "/icons/black-check.svg",
+            }
+
+        ],
+        text: "Fully managed team of Sr. developers with a designated project manager",
+    },
+    {
+        checks: [
+
+            {
+                src: "/icons/pink-check.svg",
+            },
+            {
+                src: "/icons/dash.svg",
+            },
+            {
+                src: "/icons/black-check.svg",
+            }
+
+        ],
+        text: "Fully managed team of Sr. designers with a designated project manager",
+    },
+    {
+        checks: [
+
+            {
+                src: "/icons/pink-check.svg",
+            },
+            {
+                src: "/icons/dash.svg",
+            },
+            {
+                src: "/icons/dash.svg",
+            }
+
+        ],
+        text: "Direct advising by our leadership team with decades of combined experience",
+    },
+
+]
+const card_data = [
+
+    {
+        description: "We delivered 50+ projects and have 5+ year work experience",
+        source: "/logos/experience.svg",
+        title: "Experience",
+    },
+    {
+        description: "We understand your market and build impactful solutions",
+        source: "/logos/relevance.svg",
+        title: "Relevance",
+    },
+    {
+        description: "Our clients love working with us. We have 80% customer return rate.",
+        source: "/logos/quality.svg",
+        title: "Quality",
+    },
+
+]
+
+---
+
+<section class="bg-[url('images/why-us-bg.png')] bg-cover bg-no-repeat py-16">
+    <ContainerSmall>
+        <div class="flex flex-col gap-20 justify-center overflow-hidden">
+            <HeadingThree5XlCenter>{ data.title }</HeadingThree5XlCenter>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {
+
+                    card_data.map( ( data ) => (
+    
+                        <WhyUsCard
+                            description={ data.description }
+                            source={ data.source }
+                            title={ data.title }
+                        />
+    
+                    ))
+    
+                }
+            </div>
+            <div class="border border-white bg-zinc-100 rounded-lg p-8 min-w-[770px]">
+                <div class="grid grid-cols-2 items-center gap-6 md:gap-20 border-b-2 border-black py-4">
+                    <HeadingFourLgSemibold>{ table_data.title }</HeadingFourLgSemibold>
+                    <div class="grid grid-cols-3 gap-4">
+                        {
+
+                            table_data.subtitles.map(( data ) => (
+
+                                <PragraphLgCenter>{ data.subtitle }</PragraphLgCenter>
+
+                            ))
+
+                        }
+                    </div>
+                </div>
+                <div class="flex flex-col gap-14 py-14">
+                    {
+
+                        table_list.map( ( data ) => (
+
+                            <div class="grid grid-cols-2 items-center gap-6 md:gap-20">
+                                <div class="max-sm:w-72">
+                                    <PragraphLgResponsive>{ data.text }</PragraphLgResponsive>
+                                </div>
+                                <div class="grid grid-cols-3 place-items-center gap-4">
+                                    {
+
+                                        data.checks.map( ( item ) => (
+
+                                            <div class="size-8 lg:size-12">
+                                                <PictureContain
+                                                    alternative_text=""
+                                                    source={ item.src }
+                                                />
+                                            </div>
+
+                                        ))
+
+                                    }
+                                </div>
+                            </div>
+
+                        ))
+
+                    }
+                </div>
+            </div>
+        </div>
+    </ContainerSmall>
+</section>
