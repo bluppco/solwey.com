@@ -26,6 +26,10 @@ module.exports = {
 
 			keyframes: {
 
+				"loop-scroll": {
+                    "from": { transform: "translateX(0)" },
+                    "to": { transform: "translateX(-100%)" },
+                },
 				"slide-in-left": {
                     "0%": {
                         visibility: "visible",
@@ -59,6 +63,7 @@ module.exports = {
       		},
       		animation: {
 
+				"loop-scroll": "loop-scroll 20s linear infinite",
 				"slide-in-left": 'slide-in-left 1s ease-in-out 0.25s 1',
                 "slide-in-right": 'slide-in-right 1s ease-in-out 0.25s 1',
 				"accordion-down": "accordion-down 0.2s ease-out",
