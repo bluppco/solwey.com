@@ -1,0 +1,343 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import ReviewCard from "@/components/home/reviews/card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingThree5XlCenter from "@/atoms/atoms-shiva/headings/three/5xl/bold/leading/center/index.astro"
+import ParagraphXl from "@/atoms/atoms-shiva/paragraphs/xl/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// HARDCODED DATA
+const data = { 
+
+    rating: "/icons/rating.svg",
+    subtitle: "from 8 reviews on Clutch",
+    title: "We have excellent reviews",
+
+}
+const card_data = [
+
+    {
+        bottom_description:"Since Solwey Consulting joined the project, they've been able to develop complex code and increase automated testing efforts. More importantly, they develop scalable solutions. Their incredible technical skills have been instrumental in the company's enhanced engineering processes",
+        bottom_subtitle:"Founder, Risk Mgmt Software Company",
+        bottom_title:"REVIEWER FEEDBACK",
+        description:"A SaaS company hired Solwey Consulting to support their software engineering efforts. The team is building modules within the compliance and risk field, and they use React and Rails to develop the solutions.",
+        link_text:"Read full review on Clutch",
+        link:"/",
+        points:[
+
+            {
+                source: "/icons/domain.svg",
+                title: "Custom Software Development",
+            },
+            {
+                source: "/icons/money.svg",
+                title: "$200,000 to $999,999",
+            },
+            {
+                source: "/icons/date.svg",
+                title: "May 2021 - Ongoing",
+            },
+
+        ],
+        rating: "/icons/rating.svg",
+        review_points: [
+
+            {
+                number: "5.0",
+                title: "Quality",
+            },
+            {
+                number: "4.5",
+                title: "Schedule",
+            },
+            {
+                number: "5.0",
+                title: "Cost",
+            },
+            {
+                number: "5.0",
+                title: "Willing to refer",
+            },
+
+        ],
+        review_title: "THE REVIEW",
+        review: "'We feel that they’re an extension of our team rather than just a contracting firm.'",
+        subtitle: "Modular B2B Software Dev for SaaS Company", 
+        title: "THE PROJECT",
+    },
+    {
+        bottom_description:"Solwey Consulting’s efforts have driven the development process to completion. They do tasks expediently, and they facilitate an outstanding working environment through their communicative, responsive, and proactive approach. Their top-notch customer service complements their technical expertise.",
+        bottom_subtitle:"VP, Triangle",
+        bottom_title:"REVIEWER FEEDBACK",
+        description:"Solwey Consulting is developing an Android and iOS app for a property tech company. The app uses self-tour and smart lock technologies, and it’s integrated with Google Maps and a database.",
+        link_text:"Read full review on Clutch",
+        link:"/",
+        points:[
+
+            {
+                source: "/icons/domain.svg",
+                title: "Mobile App Development",
+            },
+            {
+                source: "/icons/money.svg",
+                title: "$50,000 to $199,999",
+            },
+            {
+                source: "/icons/date.svg",
+                title: "Feb. 2021 - Ongoing",
+            },
+
+        ],
+        rating: "/icons/rating.svg",
+        review_points: [
+
+            {
+                number: "5.0",
+                title: "Quality",
+            },
+            {
+                number: "5.0",
+                title: "Schedule",
+            },
+            {
+                number: "5.0",
+                title: "Cost",
+            },
+            {
+                number: "5.0",
+                title: "Willing to refer",
+            },
+
+        ],
+        review_title: "THE REVIEW",
+        review: "'The likelihood of our app’s success has increased because Solwey is our development partner.'",
+        subtitle: "Mobile App Development for Property Technology Company", 
+        title: "THE PROJECT",
+    },
+    {
+        bottom_description:"The engagement led to the alpha version launching within the deadline. The team proved to be responsive on communication channels such as Slack, GitLab, and Scrum Zoom calls. Overall, Solewey Consulting was 95% on-time with the delivery of merge requests and projects.",
+        bottom_subtitle:"CEO & Co-founder, Engineering Simulation Software Provider",
+        bottom_title:"REVIEWER FEEDBACK",
+        description:"Solewey Consulting provided UX/UI design for an engineering simulation provider app. Full-stack developer tools used were React on the frontend, Express and NodeJS on the backend, and Python physics engine.",
+        link_text:"Read full review on Clutch",
+        link:"/",
+        points:[
+
+            {
+                source: "/icons/domain.svg",
+                title: "Custom Software Development UI/UX Design",
+            },
+            {
+                source: "/icons/money.svg",
+                title: "$50,000 to $199,999",
+            },
+            {
+                source: "/icons/date.svg",
+                title: "Feb. - May 2021",
+            },
+
+        ],
+        rating: "/icons/rating.svg",
+        review_points: [
+
+            {
+                number: "5.0",
+                title: "Quality",
+            },
+            {
+                number: "5.0",
+                title: "Schedule",
+            },
+            {
+                number: "4.5",
+                title: "Cost",
+            },
+            {
+                number: "4.5",
+                title: "Willing to refer",
+            },
+
+        ],
+        review_title: "THE REVIEW",
+        review: "'They're incredibly responsive and care about delivering a world-class MVP.'",
+        subtitle: "Custom Web Dev for Engineering Simulation Software Provider", 
+        title: "THE PROJECT",
+    },
+    {
+        bottom_description:"Thanks to Solwey Consulting's work, the website continues to run well. The team communicates regularly through daily standups. They are flexible and is quick to respond on inquiries.",
+        bottom_subtitle:"Founder, Online Arts Networking Platform",
+        bottom_title:"REVIEWER FEEDBACK",
+        description:"Solwey Consulting developed a website and provides ongoing maintenance for an online art networking platform. The team built the site in a variety of languages and continues to do maintenance work for the site.",
+        link_text:"Read full review on Clutch",
+        link:"/",
+        points:[
+
+            {
+                source: "/icons/domain.svg",
+                title: "Web Development",
+            },
+            {
+                source: "/icons/money.svg",
+                title: "$50,000 to $199,999",
+            },
+            {
+                source: "/icons/date.svg",
+                title: "Jan. 2019 - Ongoing",
+            },
+
+        ],
+        rating: "/icons/rating.svg",
+        review_points: [
+
+            {
+                number: "5.0",
+                title: "Quality",
+            },
+            {
+                number: "4.5",
+                title: "Schedule",
+            },
+            {
+                number: "4.5",
+                title: "Cost",
+            },
+            {
+                number: "5.0",
+                title: "Willing to refer",
+            },
+
+        ],
+        review_title: "THE REVIEW",
+        review: "'He's very knowledgeable and, as I said before, quick to deliver.'",
+        subtitle: "Web Dev & Maintenance for Online Arts Networking Platform", 
+        title: "THE PROJECT",
+    },
+    {
+        bottom_description:"The team finished the app successfully and enabled the company to launch its platform. Solwey Consulting followed an agile development process throughout the project. Their communication and coding skills were impressive, leading to a fruitful partnership.",
+        bottom_subtitle:"VP of Product, Payment Approved",
+        bottom_title:"REVIEWER FEEDBACK",
+        description:"A fintech startup's mobile app was only available for iOS and they hired Solwey Consulting to develop an app that's also compatible with Android. They also created a backend payment platform to support it.",
+        link_text:"Read full review on Clutch",
+        link:"/",
+        points:[
+
+            {
+                source: "/icons/domain.svg",
+                title: "Mobile App Development",
+            },
+            {
+                source: "/icons/money.svg",
+                title: "$50,000 to $199,999",
+            },
+            {
+                source: "/icons/date.svg",
+                title: "Apr. 2020 - Jan. 2021",
+            },
+
+        ],
+        rating: "/icons/rating.svg",
+        review_points: [
+
+            {
+                number: "5.0",
+                title: "Quality",
+            },
+            {
+                number: "5.0",
+                title: "Schedule",
+            },
+            {
+                number: "5.0",
+                title: "Cost",
+            },
+            {
+                number: "5.0",
+                title: "Willing to refer",
+            },
+
+        ],
+        review_title: "THE REVIEW",
+        review: "'We hope to work with them again soon.'",
+        subtitle: "Payment Mobile App Dev for Fintech Startup", 
+        title: "THE PROJECT",
+    },
+
+]
+
+---
+
+<section class="py-20 bg-[url('/images/review-bg.png')] bg-no-repeat bg-cover">
+    <ContainerSmall>
+        <div class="flex flex-col gap-8">
+            <HeadingThree5XlCenter>{ data.title }</HeadingThree5XlCenter>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <div class="h-8 aspect-[10/2]">
+                    <PictureContain
+                        alternative_text=""
+                        source={ data.rating }
+                    />
+                </div>
+                <ParagraphXl>{ data.subtitle }</ParagraphXl>
+            </div>
+            <div class="reviews-swiper-container relative overflow-hidden">
+                <div class="swiper-wrapper">
+                    {
+
+                        card_data.map( ( data ) => (
+    
+                            <div class="swiper-slide">
+                                <ReviewCard
+                                    bottom_description={ data.bottom_description }
+                                    bottom_subtitle={ data.bottom_subtitle }
+                                    bottom_title={ data.bottom_title }
+                                    description={ data.description }
+                                    link_text={ data.link_text }
+                                    link={ data.link }
+                                    points={ data.points }
+                                    rating={ data.rating }
+                                    review_points={ data.review_points }
+                                    review_title={ data.review_title }
+                                    review={ data.review }
+                                    subtitle={ data.subtitle }
+                                    title={ data.title }
+                                />
+                            </div>
+                            
+                        ))
+    
+                    }
+                </div>
+                <div class="pagination flex justify-center z-10"></div>
+            </div>
+        </div>
+    </ContainerSmall>
+</section>
+
+<script>
+    // IMPORT SWIPER JS AND ITS MODULES
+    import Swiper from "swiper/bundle"
+    import "swiper/css/bundle"
+
+    // INITIALISE SWIPER
+    new Swiper(".reviews-swiper-container", {
+        
+        autoplay: {
+
+            delay: 5000,
+
+        },
+        loop: true,
+        pagination: {
+
+            el: '.pagination',
+            clickable: true,
+
+        },
+        
+    })
+</script>
