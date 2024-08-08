@@ -1,5 +1,16 @@
 import { z, defineCollection } from "astro:content"
 
+const headerCollection = defineCollection({
+
+    schema: z.object({
+
+        title: z.string(),
+        order: z.number(),
+        link: z.string(),
+        live : z.boolean(),
+
+    })
+
 const footerColumnoneCollection = defineCollection({
   
 	schema: z.object({
@@ -25,7 +36,8 @@ const footerformCollection = defineCollection({
 
 export const collections = {
 
+    "header" : headerCollection,
     "footer-column-one": footerColumnoneCollection,
-	"footer-form": footerformCollection,
+	  "footer-form": footerformCollection,
 
 }
