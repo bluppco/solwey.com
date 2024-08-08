@@ -24,6 +24,11 @@ module.exports = {
 		},
     	extend: {
 
+			backgroundImage: {
+
+				'custom-gradient': 'linear-gradient(60deg, #f5d8df, #e8dbd0, #d7e1e5)',
+				
+			},
 			keyframes: {
 
 				"loop-scroll": {
@@ -72,6 +77,10 @@ module.exports = {
 			},
 			colors: {
 
+				"pink": "#f5d8df",
+				"yellow": "#e8dbd0",
+				"blue": "#d7e1e5",
+				"pink_bg": "#eee5e1",
 
 			},
 			fontFamily: {

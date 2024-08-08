@@ -1,0 +1,98 @@
+---
+
+// IMPORT ASTRO ATOMS
+import Line from "@/atoms/atoms-shiva/line/index.astro"
+import Link from "@/atoms/links/index.astro"
+import Paragraph3Xl from "@/atoms/atoms-shiva/paragraphs/3xl/semibold/index.astro"
+import ParagraphBase from "@/atoms/atoms-shiva/paragraphs/base/index.astro"
+import ParagraphLg from "@/atoms/atoms-shiva/paragraphs/lg/index.astro"
+import ParagraphLgMedium from "@/atoms/atoms-shiva/paragraphs/lg/medium/leading/index.astro"
+import ParagraphLgSemiboldBlue from "@/atoms/atoms-shiva/paragraphs/lg/semibold/underline/blue/index.astro"
+import ParagraphSm from "@/atoms/atoms-shiva/paragraphs/sm/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    bottom_description,
+    bottom_subtitle,
+    bottom_title,
+    description,
+    link_text,
+    link,
+    points,
+    rating,
+    review_points,
+    review_title,
+    review,
+    subtitle, 
+    title,
+
+} = Astro.props
+
+---
+
+<div class="flex flex-col shadow-md border-2 border-white rounded-md p-8">
+    <div class="flex flex-col-reverse md:flex-row border-b-2 border-black">
+        <div class="flex flex-col gap-4 pr-6 md:border-r-2 border-black">
+            <ParagraphLg>{ title }</ParagraphLg>
+            <Paragraph3Xl>{ subtitle }</Paragraph3Xl>
+            <Line/>
+            <ParagraphBase>{ description }</ParagraphBase>
+            <div class="flex flex-col md:flex-row gap-4">
+                {
+
+                    points.map( ( point ) => (
+
+                        <div class="flex items-center gap-2">
+                            <div class="size-10 rounded-full overflow-hidden">
+                                <PictureContain
+                                    alternative_text=""
+                                    source={ point.source }
+                                />
+                            </div>
+                            <ParagraphSm>{ point.title }</ParagraphSm>
+                        </div>
+
+                    ))
+
+                }
+            </div>
+        </div>
+        <div class="flex flex-col px-6">
+            <div class="flex flex-col gap-4 pb-4">
+                <ParagraphLg>{ review_title }</ParagraphLg>
+                <div class="w-32 aspect-[10/2]">
+                    <PictureContain
+                        alternative_text=""
+                        source={ rating }
+                    />
+                </div>
+                <ParagraphLgMedium>{ review }</ParagraphLgMedium>
+            </div>
+            <div class="flex flex-col gap-4 border-t-2 border-black py-4">
+                {
+
+                    review_points.map( ( point ) => (
+
+                        <div class="flex items-center justify-between">
+                            <ParagraphBase>{ point.title }</ParagraphBase>
+                            <ParagraphBase>{ point.number }</ParagraphBase>
+                        </div>
+
+                    ))
+
+                }
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col gap-4 py-4 max-w-[800px]">
+        <ParagraphLg>{ bottom_title }</ParagraphLg>
+        <Paragraph3Xl>{ bottom_subtitle }</Paragraph3Xl>
+        <div class="h-0.5 w-28 bg-black"/>
+        <ParagraphBase>{ bottom_description }</ParagraphBase>
+        <Link href={ link }>
+            <ParagraphLgSemiboldBlue>{ link_text }</ParagraphLgSemiboldBlue>
+        </Link>
+    </div>
+</div>

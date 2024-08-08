@@ -1,0 +1,25 @@
+---
+
+// IMPORT ASTRO ATOMS
+import ParagraphLgBlue from "@/atoms/atoms-shiva/paragraphs/lg/semibold/center/blue/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    source,
+    title,
+
+} = Astro.props
+
+---
+
+<div class="flex flex-col items-center justify-center gap-2 p-6 shadow-md max-w-64 rounded-lg">
+    <div class="size-20">
+        <PictureContain
+            alternative_text=""
+            source={ source }
+        />
+    </div>
+    <ParagraphLgBlue>{ title }</ParagraphLgBlue>
+</div>
