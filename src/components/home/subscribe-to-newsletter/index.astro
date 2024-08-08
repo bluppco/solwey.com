@@ -1,0 +1,35 @@
+---
+
+// IMPORT ASTRO LAYOUTSS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonBlue from "@/atoms/atoms-nandini/buttons/blue/index.astro"
+import HeadingTwo4xlBoldCenter from "@/atoms/atoms-nandini/headings/two/4xl/bold/center/index.astro"
+import ParagraphCenter from "@/atoms/atoms-nandini/paragraphs/center/index.astro"
+
+// HARDCODED DATA
+const data={
+
+    button_text:"subscribe",
+    description:"Get monthly updates on the latest trends in design, technology, machine learning, and entrepreneurship. Join the Solwey community today!",
+    title:"Never miss anything",
+
+}
+
+---
+
+<section class="py-20 bg-gradient-to-b from-blue-100 to-red-100">
+    <Container>
+        <div class="space-y-10">
+            <HeadingTwo4xlBoldCenter>{ data.title }</HeadingTwo4xlBoldCenter>
+            <div class="mx-10 md:mx-52 xl:mx-64 2xl:mx-80">
+                <ParagraphCenter>{ data.description }</ParagraphCenter>
+            </div>
+            <div class="flex justify-center items-center gap-2">
+                <input type="text" class="pr-10 md:pr-20 py-4 pl-4" placeholder="Email">
+                <ButtonBlue>{ data.button_text }</ButtonBlue>
+            </div>
+        </div>
+    </Container>
+</section>

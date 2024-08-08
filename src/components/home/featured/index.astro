@@ -1,0 +1,107 @@
+---
+
+// IMPORT ASTRO ATOMS
+import HeadingOne5xlCenterBoldWhite from "@/atoms/atoms-nandini/headings/one/5xl/center/bold/white/index.astro"
+import PictureInteranl from "@/atoms/picture/internal/index.astro"
+
+// HARDCODED DARA 
+const data ={
+
+    alternative_text:"Image",
+    source1:"/images/feature-1.svg",
+    source2:"/images/feature-2.svg",
+    source3:"/images/feature-3.svg",
+    source4:"/images/feature-4.svg",
+    source5:"/images/feature-5.svg",
+    source6:"/images/feature-6.svg",
+    title:"Featured in",
+
+
+}
+
+---
+<section class="py-16 bg-black">
+    <div class="space-y-20">
+        <HeadingOne5xlCenterBoldWhite>{ data.title }</HeadingOne5xlCenterBoldWhite>
+        <div class="flex gap-20 overflow-hidden">
+            <div class="flex gap-20 animate-loop-scroll">
+                <div class="h-8 aspect-[10/3]">
+                    <PictureInteranl 
+                        alternative_text={ data.alternative_text }
+                        source={ data.source1 }        
+                    />
+                </div>
+                <div class="h-8 aspect-[7/2]">
+                    <PictureInteranl 
+                        alternative_text={ data.alternative_text }
+                        source={ data.source2 }        
+                    />
+                </div>
+                <div class="h-8 aspect-[8/2]">
+                    <PictureInteranl 
+                        alternative_text={ data.alternative_text }
+                        source={ data.source3 }          
+                    />
+                </div>
+                <div class="h-8 aspect-[13/1]">
+                    <PictureInteranl 
+                        alternative_text={ data.alternative_text }
+                        source={ data.source4 }          
+                    />
+                </div>
+                <div class="h-8 aspect-[10/3]">
+                    <PictureInteranl 
+                        alternative_text={ data.alternative_text }
+                        source={ data.source5 }        
+                    />
+                </div>
+                <div class="h-8 aspect-[8/1]">
+                    <PictureInteranl 
+                        alternative_text={ data.alternative_text }
+                        source={ data.source6 }        
+                    />
+                </div>
+            </div>
+            <div class="inline-block">
+                <div class="flex gap-20 animate-loop-scroll">
+                    <div class="h-8 aspect-[10/3]">
+                        <PictureInteranl 
+                            alternative_text={ data.alternative_text }
+                            source={ data.source1 }        
+                        />
+                    </div>
+                    <div class="h-8 aspect-[7/2]">
+                        <PictureInteranl 
+                            alternative_text={ data.alternative_text }
+                            source={ data.source2 }        
+                        />
+                    </div>
+                    <div class="h-8 aspect-[8/2]">
+                        <PictureInteranl 
+                            alternative_text={ data.alternative_text }
+                            source={ data.source3 }          
+                        />
+                    </div>
+                    <div class="h-8 aspect-[13/1]">
+                        <PictureInteranl 
+                            alternative_text={ data.alternative_text }
+                            source={ data.source4 }          
+                        />
+                    </div>
+                    <div class="h-8 aspect-[10/3]">
+                        <PictureInteranl 
+                            alternative_text={ data.alternative_text }
+                            source={ data.source5 }        
+                        />
+                    </div>
+                    <div class="h-8 aspect-[8/1]">
+                        <PictureInteranl 
+                            alternative_text={ data.alternative_text }
+                            source={ data.source6 }        
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
