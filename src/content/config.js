@@ -11,6 +11,8 @@ const headerCollection = defineCollection({
 
     })
 
+})
+
 const footerColumnoneCollection = defineCollection({
   
 	schema: z.object({
@@ -38,6 +40,6 @@ export const collections = {
 
     "header" : headerCollection,
     "footer-column-one": footerColumnoneCollection,
-	  "footer-form": footerformCollection,
+	"footer-form": footerformCollection,
 
 }
