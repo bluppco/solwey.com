@@ -1,0 +1,69 @@
+---
+
+// IMPORT ASTRO ATOMS
+import HeadingThree4Xl from "@/atoms/atoms-shiva/headings/three/4xl/semibold/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphLgGray from "@/atoms/atoms-shiva/paragraphs/lg/gray/index.astro"
+import ParagraphLgMediumBlue from "@/atoms/atoms-shiva/paragraphs/lg/medium/blue/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    card_layout,
+    image_layout,
+    links,
+    logos,
+    source,
+    subtitle,
+    title,
+
+} = Astro.props
+
+---
+
+<div class={`flex flex-col items-center justify-between gap-10 ${ card_layout }`}>
+    <div class="max-h-[640px] aspect-square">
+        <PictureContain
+            alternative_text=""
+            source={ source }
+        />
+    </div>
+    <div class="flex items-center justify-center">
+        <div class="flex flex-col gap-8 max-w-[400px]">
+            <div class="flex flex-col gap-4">
+                <HeadingThree4Xl>{ title }</HeadingThree4Xl>
+                <ParagraphLgGray>{ subtitle }</ParagraphLgGray>
+                <div class="flex items-center gap-4">
+                    {
+
+                        logos.map( ( logo ) => (
+
+                            <div class="size-8">
+                                <PictureContain
+                                    alternative_text=""
+                                    source={ logo.source }
+                                />
+                            </div>
+
+                        ))
+
+                    }
+                </div>
+            </div>
+            <div class="flex flex-col gap-4">
+                {
+
+                    links.map( ( data ) => (
+
+                        <Link href={ data.link }>
+                            <ParagraphLgMediumBlue>{ data.link_text }</ParagraphLgMediumBlue>
+                        </Link>
+
+                    ))
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
